@@ -1,15 +1,15 @@
 #added to my ~/.config/aerospace/aerospace.toml config file
 
-#alt + "," = change orientation, v or h 
-#alt + "/" = change to accordion
-#cmd/windows-key + "N" = new window 
-#alt + shift + "nvim-key" = move current tile in direction
+# alt + "," = change orientation, v or h 
+# alt + "/" = change to accordion
+# cmd/windows-key + "N" = new window 
+# alt + shift + "nvim-key" = move current tile in direction
 
-#alt + shift + ";" = enter service mode "meta mode"
-#in service mode:
-#alt + shift + "nvim-key" = puts current tile and tile in the direction of the key in the same container 
+# alt + shift + ";" = enter service mode "meta mode"
+# in service mode:
+#  alt + shift + "nvim-key" = puts current tile and tile in the direction of the key in the same container 
 
-#alt + "-/+" = resize current container
+# alt + "-/+" = resize current container
 
 # It's not necessary to copy all keys to your config.
 # If the key is missing in your config, "default-config.toml" will serve as a fallback
@@ -53,6 +53,7 @@ key-mapping.preset = 'qwerty'
 # See https://nikitabobko.github.io/AeroSpace/guide#on-focus-changed-callbacks
 # See https://nikitabobko.github.io/AeroSpace/commands#move-mouse
 on-focused-monitor-changed = ['move-mouse monitor-lazy-center']
+on-focus-changed = "move-mouse window-lazy-center"
 
 # Gaps between windows (inner-*) and between monitor edges (outer-*).
 # Possible values:
@@ -62,12 +63,12 @@ on-focused-monitor-changed = ['move-mouse monitor-lazy-center']
 #                 Monitor pattern is the same as for 'workspace-to-monitor-force-assignment'.
 #                 See: https://nikitabobko.github.io/AeroSpace/guide#assign-workspaces-to-monitors
 [gaps]
-inner.horizontal = 20
-inner.vertical = 20
-outer.left = 20
-outer.bottom = 20
-outer.top = 20
-outer.right = 20
+inner.horizontal = 10
+inner.vertical = 10
+outer.left = 10
+outer.bottom = 10
+outer.top = 10
+outer.right = 10
 
 # 'main' binding mode declaration
 # See: https://nikitabobko.github.io/AeroSpace/guide#binding-modes
@@ -117,12 +118,17 @@ alt-shift-equal = 'resize smart +50'
 alt-1 = 'workspace 1'
 alt-2 = 'workspace 2'
 alt-3 = 'workspace 3'
-alt-b = 'workspace B'
-alt-e = 'workspace E'
-alt-m = 'workspace M'
-alt-n = 'workspace N'
-alt-t = 'workspace T'
-alt-s = 'workspace S'
+alt-4 = 'workspace 4'
+alt-5 = 'workspace 5'
+alt-6 = 'workspace 6'
+alt-b = 'workspace Browse'
+alt-e = 'workspace Editor'
+alt-m = 'workspace Mail'
+alt-n = 'workspace Notes'
+alt-t = 'workspace Terminal'
+alt-s = 'workspace Slack'
+alt-a = 'workspace AI'
+alt-v = 'workspace Video'
 # See: https://nikitabobko.github.io/AeroSpace/commands#move-node-to-workspace
 alt-shift-1 = 'move-node-to-workspace 1'
 alt-shift-2 = 'move-node-to-workspace 2'
@@ -130,15 +136,14 @@ alt-shift-3 = 'move-node-to-workspace 3'
 alt-shift-4 = 'move-node-to-workspace 4'
 alt-shift-5 = 'move-node-to-workspace 5'
 alt-shift-6 = 'move-node-to-workspace 6'
-alt-shift-7 = 'move-node-to-workspace 7'
-alt-shift-8 = 'move-node-to-workspace 8'
-alt-shift-9 = 'move-node-to-workspace 9'
-alt-shift-b = 'move-node-to-workspace B'
-alt-shift-n = 'move-node-to-workspace N'
-alt-shift-t = 'move-node-to-workspace T'
-alt-shift-v = 'move-node-to-workspace M'
-alt-shift-w = 'move-node-to-workspace E'
-alt-shift-s = 'move-node-to-workspace S'
+alt-shift-b = 'move-node-to-workspace Browse'
+alt-shift-n = 'move-node-to-workspace Notes'
+alt-shift-t = 'move-node-to-workspace Terminal'
+alt-shift-m = 'move-node-to-workspace Mail'
+alt-shift-e = 'move-node-to-workspace Editor'
+alt-shift-s = 'move-node-to-workspace Slack'
+alt-shift-a = 'move-node-to-workspace AI'
+alt-shift-v = 'move-node-to-workspace Video'
 
 # See: https://nikitabobko.github.io/AeroSpace/commands#workspace-back-and-forth
 alt-tab = 'workspace-back-and-forth'
@@ -148,6 +153,24 @@ alt-shift-tab = 'move-workspace-to-monitor --wrap-around next'
 # See: https://nikitabobko.github.io/AeroSpace/commands#mode
 alt-shift-semicolon = 'mode service'
 
+[workspace-to-monitor-force-assignment]
+1 = ['secondary', 'main']
+2 = ['secondary', 'main']
+3 = ['secondary', 'main']
+4 = ['secondary', 'main']
+5 = ['secondary', 'main']
+6 = ['secondary', 'main']
+# Big Screans Go on Monitor
+'Browse' = ['secondary', 'main']
+'Terminal' = ['secondary', 'main']
+'Editor' = ['secondary', 'main']
+'Notes' = ['secondary', 'main']
+
+# Small Screens go on Main
+'Video' = ['main', 'secondary']
+'Slack' = ['main', 'secondary']
+'Mail' = ['main', 'secondary']
+'AI' = ['main', 'secondary']
 # 'service' binding mode declaration.
 # See: https://nikitabobko.github.io/AeroSpace/guide#binding-modes
 [mode.service.binding]
@@ -164,3 +187,35 @@ alt-shift-h = ['join-with left', 'mode main']
 alt-shift-j = ['join-with down', 'mode main']
 alt-shift-k = ['join-with up', 'mode main']
 alt-shift-l = ['join-with right', 'mode main']
+
+[[on-window-detected]]
+if.app-id = 'com.mitchellh.ghostty'
+run = 'move-node-to-workspace Terminal'
+
+[[on-window-detected]]
+if.app-id = 'com.google.Chrome'
+run = 'move-node-to-workspace Browse'
+
+[[on-window-detected]]
+if.app-id = 'com.anthropic.claudefordesktop'
+run = 'move-node-to-workspace AI'
+
+[[on-window-detected]]
+if.app-id = 'md.obsidian'
+run = 'move-node-to-workspace Notes'
+
+[[on-window-detected]]
+if.app-id = 'com.microsoft.teams2'
+run = 'move-node-to-workspace Video'
+
+[[on-window-detected]]
+if.app-id = 'com.tinyspeck.slackmacgap'
+run = 'move-node-to-workspace Slack'
+
+[[on-window-detected]]
+if.app-id = 'com.apple.Notes'
+run = 'move-node-to-workspace Notes'
+
+[[on-window-detected]]
+if.app-id = 'com.microsoft.VSCode'
+run = 'move-node-to-workspace Editor'
