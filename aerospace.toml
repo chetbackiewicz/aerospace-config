@@ -123,7 +123,7 @@ alt-5 = 'workspace 5'
 alt-6 = 'workspace 6'
 alt-b = 'workspace Browse'
 alt-e = 'workspace Editor'
-alt-m = 'workspace Mail'
+alt-m = 'workspace Music'
 alt-n = 'workspace Notes'
 alt-t = 'workspace Terminal'
 alt-s = 'workspace Slack'
@@ -139,7 +139,7 @@ alt-shift-6 = 'move-node-to-workspace 6'
 alt-shift-b = 'move-node-to-workspace Browse'
 alt-shift-n = 'move-node-to-workspace Notes'
 alt-shift-t = 'move-node-to-workspace Terminal'
-alt-shift-m = 'move-node-to-workspace Mail'
+alt-shift-m = 'move-node-to-workspace Music'
 alt-shift-e = 'move-node-to-workspace Editor'
 alt-shift-s = 'move-node-to-workspace Slack'
 alt-shift-a = 'move-node-to-workspace AI'
@@ -165,11 +165,10 @@ alt-shift-semicolon = 'mode service'
 'Terminal' = ['secondary', 'main']
 'Editor' = ['secondary', 'main']
 'Notes' = ['secondary', 'main']
-
 # Small Screens go on Main
 'Video' = ['main', 'secondary']
 'Slack' = ['main', 'secondary']
-'Mail' = ['main', 'secondary']
+'Music' = ['main', 'secondary']
 'AI' = ['main', 'secondary']
 # 'service' binding mode declaration.
 # See: https://nikitabobko.github.io/AeroSpace/guide#binding-modes
